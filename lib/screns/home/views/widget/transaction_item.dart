@@ -1,7 +1,9 @@
+import 'package:expense_repository/expense_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TransactionItem extends StatelessWidget {
-  final Map<String, dynamic> data;
+  final Expense data;
 
   const TransactionItem({super.key, required this.data});
 
@@ -27,17 +29,22 @@ class TransactionItem extends StatelessWidget {
                       height: 50,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: data['color'],
+                        color: Color(data.category.color),
                       ),
                     ),
-                    data['icon'] // fetch icon
+                    Image.asset(
+                      'assets/${data.category.icon}.png',
+                      scale: 14,
+                      color: Colors.white,
+                    )
+                    // data['icon'] // fetch icon
                   ],
                 ),
                 const SizedBox(
                   width: 12,
                 ),
                 Text(
-                  data['name'],
+                  data.category.name,
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -50,7 +57,7 @@ class TransactionItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '-\$${data['totalAmount']}',
+                  '-\$ ${data.amount.toString()}.00',
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -58,7 +65,7 @@ class TransactionItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  data['date'],
+                  DateFormat('dd/MM/yyyy').format(data.date),
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,

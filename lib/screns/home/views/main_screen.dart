@@ -3,10 +3,12 @@ import 'dart:math';
 import 'package:advance_expense_tracker/screns/home/views/widget/main_screen_appbar.dart';
 import 'package:advance_expense_tracker/screns/home/views/widget/main_screen_banner_content.dart';
 import 'package:advance_expense_tracker/screns/home/views/widget/transaction.dart';
+import 'package:expense_repository/expense_repository.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+  final List<Expense> expenses;
+  const MainScreen(this.expenses, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,7 @@ class MainScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20,),
-            const Expanded(child: Transaction())
+            Expanded(child: Transaction(expenses)),
           ],
         ),
       ),

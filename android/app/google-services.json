@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "998274219655",
+    "project_id": "advance-expense-tracker-f747f",
+    "storage_bucket": "advance-expense-tracker-f747f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:998274219655:android:29f169b9480bcdcf028222",
+        "android_client_info": {
+          "package_name": "com.example.advance_expense_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZEaxy_weQ8MfJUwH3VKy9M76t67nV1_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,8 @@
+import 'package:advance_expense_tracker/screns/home/blocs/get_expenses_bloc/get_expenses_bloc.dart';
 import 'package:advance_expense_tracker/screns/home/views/home_screen.dart';
+import 'package:expense_repository/expense_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyAppView extends StatelessWidget {
@@ -21,7 +24,12 @@ class MyAppView extends StatelessWidget {
         ),
         textTheme: GoogleFonts.outfitTextTheme(Theme.of(context).textTheme),
       ),
-      home: const HomeScreen(),
+      home: BlocProvider(
+        create: (context) => GetExpensesBloc(
+          FirebaseExpenseRepo()
+        )..add(GetExpenses()),
+        child: const HomeScreen(),
+      ),
     );
   }
 }
